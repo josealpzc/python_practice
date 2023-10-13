@@ -1,0 +1,40 @@
+#Autor: Jose A Lopez Cruz
+
+Binary Tree:
+	-tree-type structure
+	-non-linear structure
+
+Characteristics:
+	-Root node is the top of the hierachy and it is not preceded by any other node.
+	-Each node within a BT data structure has at most 2 children per node (left and right child).	
+
+	e.g of a Node class in python language
+
+	#class Node:
+	# def __init__(self,val=0, left=None, right=None)
+	#	self.val=val
+	#	self.left=left
+	#	self.right=right 
+
+	-Root node is the top of the hierarchy. 
+
+		      	       4    <- root node 
+                              / \
+      	     left child ->   2   5   <- right child
+methods:
+Basics:
+	-Insert: Whenever a Node is required to be inserted, there are some rules that must be followed.
+		1. Compare new node value with root value
+		2. If the value is less than root's value, move to the left, otherwise, move to the right.
+		3. Repeat the proccess until you find a 'leave node' without left or right child
+		4. assign new node to the leaf left/right node reference.
+	-Removing:
+	-Searching:
+	-Traversing the tree:
+		
+
+Auxiliart:
+	-height
+	-find level of a node
+	-size 
+	
