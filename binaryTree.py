@@ -30,10 +30,18 @@ class BinaryTree:
                     else:
                         current.right = BTNode(val)
                         current=None
-            
         else:
             self.root = BTNode(val)
+    
+    def inorderTraversal(self):
+        self.doInorder(self.root)
 
+    def doInorder(self,root):
+        if root:
+            self.doInorder(root.left)
+            print(root.val)
+            self.doInorder(root.right)
+    
 def main():
     '''
     root = BTNode(10)
@@ -46,11 +54,7 @@ def main():
     myBT.insert(5)
     myBT.insert(15)
     myBT.insert(7)
-    print(myBT.root.val)
-    print(myBT.root.left.val)
-    print(myBT.root.left.right.val)
-    print(myBT.root.right.val)
-    
+    myBT.inorderTraversal() 
 if __name__ == '__main__':
     
     main()

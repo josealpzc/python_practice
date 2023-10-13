@@ -31,8 +31,13 @@ Basics:
 	-Removing:
 	-Searching:
 	-Traversing the tree:
-		
-
+		- Inorder Traversal
+			1 Traverse the left subtree, i.e., call inorder (left -> subtree)
+			2 visit the root
+			3 Traverse the right subtree, i.e,. call Inorder(right -> subtree)
+		- Preorder Traversal
+		- Postorder Traversal
+	
 Auxiliart:
 	-height
 	-find level of a node
