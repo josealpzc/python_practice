@@ -29,20 +29,13 @@ class BinaryTree:
         return current 
 
     def delete(self, val):
-        #'current' will be use to go through the BST elements in order to find the value of the node to be removed,
-        #in case the value is not found within the BST node, we return -1
-
-        current = self.root # we start looking at root
-        
-               
         #Verify the BST is not empty
         if self.size > 0:
+            current = self.root  
             #Verify the node to remove is not root
-            if(current.val == val):
-                self.size=0
-                a=self.root
-                self.root = None
-                return a
+            if(val == current.val):
+                tmp=current
+
             else:
                 #Find the node to eliminate 
                 while current != None:
@@ -88,12 +81,14 @@ class BinaryTree:
                 #Node has not children
                 else:
                     print(f'Node: {tmp.val} has no children')
-                    if (tmp.val < parentNode.val):
-                        parentNode.left = None
-                    else:
-                        parentNode.right = None
 
-                    self.size-=1
+                    if (val!=self.root.val):
+                        if (tmp.val < parentNode.val):
+                            parentNode.left = None
+                        else:
+                            parentNode.right = None
+
+                        self.size-=1
             else:
                 print(f"Value: {val} does not exist in the BST")
                 return 1
@@ -149,6 +144,7 @@ def main():
     
     print(myBTree.root.val)
     '''
+    """
     #Do Basic testing for adding and removing root
     myBT = BinaryTree()    #Creating myBT object of type BinaryTree()
     a=myBT.delete(10)      #Trying to Delete an unexisting number
@@ -159,7 +155,7 @@ def main():
     print("Inorder")
     myBT.inorderTraversal()
     print("*****")
-
+    """
     #Now lets create a bigger three
     """
                         10   <--- root
@@ -170,6 +166,7 @@ def main():
                    /
                   1
     """
+    myBT = BinaryTree()
     myBT.insert(10) 
     myBT.insert(5)
     myBT.insert(15)         
@@ -180,7 +177,7 @@ def main():
     myBT.insert(4)
     #myBT.delete(3)
     print(myBT.inorderTraversal())
-    myBT.delete(5)
+    myBT.delete(10)
     print(myBT.inorderTraversal())
 
 if __name__ == '__main__':
