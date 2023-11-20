@@ -64,12 +64,19 @@ class BinaryTree:
                 #Now lets see if node to remove has no children, 1 left/right child, or both (left, and right).
                 #Node has 2 children
                 if(tmp.left and tmp.right):
-                    current = tmp.left
-                    #print(f"current {current.val}")
-                    while(current!=None):
-                        tmp2 = current
-                        current = current.right
-                        
+                    parent2 = tmp
+                    predecesor = parent2.left
+                    
+                    while(predecesor.right!=None):
+                        parent2 = predecesor
+                        predecesor = predecesor.right
+
+                    print(f"parent: {parent2.val}")
+                    print(f"predecesor : {predecesor.val}")
+
+                    tmp.val = predecesor.val
+                    parent2.right = None
+
                 #Node has left child
                 elif(tmp.left!=None and tmp.right==None):
                     parentNode.left=tmp.left
@@ -172,8 +179,9 @@ def main():
     myBT.insert(1)
     myBT.insert(4)
     #myBT.delete(3)
+    print(myBT.inorderTraversal())
     myBT.delete(5)
-    #print(myBT.inorderTraversal())
+    print(myBT.inorderTraversal())
 
 if __name__ == '__main__':
     
