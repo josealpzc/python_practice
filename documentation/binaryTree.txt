@@ -1,4 +1,5 @@
 #Autor: Jose A Lopez Cruz
+#last update: 11/20/2023
 
 Binary Tree:
 	-tree-type structure
@@ -6,15 +7,25 @@ Binary Tree:
 
 Characteristics:
 	-Root node is the top of the hierachy and it is not preceded by any other node.
-	-Each node within a BT data structure has at most 2 children per node (left and right child).	
+	-Each node within a BT data structure has at most 2 children per node (left and right child).
+	-Right child should always have a values less then the parent node (e.g. root). The left child.
+	 will be ever greather than 0. 	
 
 	e.g of a Node class in python language
 
 	#class Node:
-	# def __init__(self,val=0, left=None, right=None)
+	#def __init__(self,val=0, left=None, right=None)
 	#	self.val=val
 	#	self.left=left
 	#	self.right=right 
+
+	
+	#Class BinaryTree:
+	#def __init(self,root):
+	#	self.root = None
+	#       self.size = 0
+	#
+	# 
 
 	-Root node is the top of the hierarchy. 
 
@@ -28,7 +39,41 @@ Basics:
 		2. If the value is less than root's value, move to the left, otherwise, move to the right.
 		3. Repeat the proccess until you find a 'leave node' without left or right child
 		4. assign new node to the leaf left/right node reference.
-	-Removing:
+	-Delete:
+		There are 3 cases that exist when removing a node from a BST, first one is, 
+		the node to delete has no children. Second is, Node has at least One child, left child or right child, 
+		this is no the easiest method to implement, but still not the harder one, for this method you only need
+		to connect parent node of the node to be removed and link it to the child node of the node to remove. 
+		Last but not least, Node has 2 children. This is an  interesting case, since we would need to choose one 
+		of the subtrees of the node to remove, and look for the smallest maximum value or the greatest minimum value, 
+		swap it with the value of the node to remove, and finally, delete the leave node that now contains the value to be removed. 
+
+		steps:
+	
+			1 find the node that contains the value to remove.
+			2 identify if node has none, one or two children.
+			3 if node has no child.
+				a. Make parent left/right child None
+				b. Reduce size of the tree by 1
+			4 if node at has only one child (left of right).
+				a. link parent node to the left/right child of the node to eliminate
+
+			5 if node has two children.
+				a. select a subtree (left, right) to work on.
+				b. if left subtree is selected.
+					b.1. find the greatest value in the left subtree.
+					b.2. swap the greatest value of the left subtree with the value in the node to eliminate.
+					b.3. unlink leave node that nows contain the value to be removed.	
+				c if right subtree is selected.
+					pass
+		   
+			10   <--- root
+                       /  \
+                      5    15
+                     / \    \
+                    3   7    16 
+                	
+
 	-Searching:
 	-Traversing the tree:
 		- Inorder Traversal
@@ -38,7 +83,7 @@ Basics:
 		- Preorder Traversal
 		- Postorder Traversal
 	
-Auxiliart:
+Auxiliar:
 	-height
 	-find level of a node
 	-size 
