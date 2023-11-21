@@ -1,3 +1,6 @@
+#Author: Jose Lopez
+#This a representation of a BST in python language
+
 class BTNode:
     def __init__(self,val=0, left=None, right=None):
         self.val = val
