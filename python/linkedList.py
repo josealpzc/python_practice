@@ -10,17 +10,23 @@
 
 class Node:
     def __init__(self,value):
-        self.value = value
+        self.value = value 
         self.next = None
 
 class LinkedList:
-    def __init__(self,value):
-        self.head = value
-
     def __init__(self):
         self.head = None
-
-    def insert(self,value):
+        self.size = 0
+    
+    def insertFirst(self,value):
+        if(self.head):
+            newNode = Node(value)
+            newNode.next = self.head
+            self.head = newNode 
+        else:
+            self.head = Node(value)
+    
+    def insertLast(self,value):
         if (self.head):
             current = self.head
             while current:
@@ -30,6 +36,8 @@ class LinkedList:
         
         else:
             self.head = Node(value)
+
+
     def printList(self):
 
         if(self.head):
@@ -41,19 +49,21 @@ class LinkedList:
             print(nodes)
         else:
             print("List is empty")
-    
         
 def main():
-    myLinkedList = LinkedList()  # Create a new object
-    myLinkedList.printList()     # print all the values in the linked list
+    mylist1 = LinkedList()
+    mylist2 = LinkedList()
 
-    #add items to the list
-    myLinkedList.insert(1)
-    myLinkedList.insert(4)
-    myLinkedList.printList()     # print the list 
-    myLinkedList.insert(10)
-    myLinkedList.insert(11)
-    myLinkedList.printList()
+    for i in range (10):
+        if(i < 5):
+            mylist1.insertLast(i)
+        else:
+            mylist2.insertLast(i)
+    
+    mylist1.insertFirst(10)
+
+    mylist1.printList()
+    mylist2.printList()
 
 
 if __name__ == '__main__':
