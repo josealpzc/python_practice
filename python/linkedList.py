@@ -72,6 +72,19 @@ class LinkedList:
             self.head = Node(value)
         
         self.size+=1
+    
+    #This method removes the first element of a list.
+    def removeFirst(self):
+        if(self.head):
+            if(self.size==1):
+                self.head=None
+            else:
+                self.head=self.head.next
+        else:
+            print("You can't remove from an empty list")
+
+        self.size-=1
+    
         
     def printSize(self):
         print(f"size of the list is: {self.size}")
@@ -112,7 +125,10 @@ def main():
     mylist.printList()
     mylist.printSize()
 
-    
+    mylist.removeFirst()
+    mylist.printList()
+    mylist.printSize()
+ 
    
 if __name__ == '__main__':
     main()
