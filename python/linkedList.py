@@ -25,7 +25,41 @@ class LinkedList:
             self.head = newNode 
         else:
             self.head = Node(value)
-    
+
+        self.size+=1
+
+    def insertAt(self,value,pos):
+        
+        if(pos>=1 and pos<=self.size+1):
+            if(self.head):
+                if(pos==1):
+                    self.insertFirst(value)
+
+                elif(pos==self.size+1):
+                    self.insertLast(value)
+
+                else:
+                    #If this condition is raised, it meand that the node to be added is not in the first or the last one.
+                    current = self.head
+                    cnt=1
+                    while cnt<pos:
+                       previous = current
+                       current = current.next
+                       cnt+=1
+                    
+                    newNode = Node(value)
+
+                    previous.next = newNode
+                    newNode.next = current
+
+            else:
+                self.head = Node(value)
+
+            self.size+=1
+        else:
+            print("Please select a number between 1 and {self.size}")
+
+
     def insertLast(self,value):
         if (self.head):
             current = self.head
@@ -36,7 +70,11 @@ class LinkedList:
         
         else:
             self.head = Node(value)
-
+        
+        self.size+=1
+        
+    def printSize(self):
+        print(f"size of the list is: {self.size}")
 
     def printList(self):
 
@@ -51,20 +89,30 @@ class LinkedList:
             print("List is empty")
         
 def main():
-    mylist1 = LinkedList()
-    mylist2 = LinkedList()
-
-    for i in range (10):
-        if(i < 5):
-            mylist1.insertLast(i)
-        else:
-            mylist2.insertLast(i)
+    #Create a list with 5 different values
+    #  5->9->7->10->2
+    mylist = LinkedList()
+    mylist.insertFirst(7)
+    mylist.insertFirst(9)
+    mylist.insertLast(10)
+    mylist.insertLast(2)
+    mylist.insertFirst(5)
+    mylist.printList()
+    mylist.printSize()
     
-    mylist1.insertFirst(10)
+    mylist.insertAt(1,1)
+    mylist.printList()
+    mylist.printSize()
+ 
+    mylist.insertAt(100,7)
+    mylist.printList()
+    mylist.printSize()
 
-    mylist1.printList()
-    mylist2.printList()
+    mylist.insertAt(200,2)
+    mylist.printList()
+    mylist.printSize()
 
-
+    
+   
 if __name__ == '__main__':
     main()
