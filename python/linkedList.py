@@ -100,35 +100,22 @@ class LinkedList:
             print(nodes)
         else:
             print("List is empty")
-        
 def main():
     #Create a list with 5 different values
     #  5->9->7->10->2
     mylist = LinkedList()
-    mylist.insertFirst(7)
-    mylist.insertFirst(9)
-    mylist.insertLast(10)
-    mylist.insertLast(2)
-    mylist.insertFirst(5)
+    for i in range(1,6):
+        mylist.insertLast(i)
+
     mylist.printList()
     mylist.printSize()
     
-    mylist.insertAt(1,1)
+    '''
+    mylist.insertAt('HERE',9)
     mylist.printList()
     mylist.printSize()
+    '''
  
-    mylist.insertAt(100,7)
-    mylist.printList()
-    mylist.printSize()
-
-    mylist.insertAt(200,2)
-    mylist.printList()
-    mylist.printSize()
-
-    mylist.removeFirst()
-    mylist.printList()
-    mylist.printSize()
- 
-   
+    
 if __name__ == '__main__':
     main()
