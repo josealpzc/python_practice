@@ -54,11 +54,9 @@ class LinkedList:
 
             else:
                 self.head = Node(value)
-
             self.size+=1
         else:
-            print("Please select a number between 1 and {self.size}")
-
+            print(f"Please select a number between 1 and {self.size}")
 
     def insertLast(self,value):
         if (self.head):
@@ -80,15 +78,14 @@ class LinkedList:
                 self.head=None
             else:
                 self.head=self.head.next
+            print(f"Value removed: {self.head.value}")
+            self.size-=1
         else:
             print("You can't remove from an empty list")
-
-        self.size-=1
-    
         
     def printSize(self):
         print(f"size of the list is: {self.size}")
-
+    
     def printList(self):
 
         if(self.head):
@@ -110,6 +107,9 @@ def main():
     mylist.printList()
     mylist.printSize()
     
+    mylist.insertAt(20,10)
+    mylist.removeFirst()
+    mylist.printList()
     '''
     mylist.insertAt('HERE',9)
     mylist.printList()
