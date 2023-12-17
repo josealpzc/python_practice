@@ -1,3 +1,5 @@
+#Author: Jose Antonio Lopez
+#Note: This script contains some examples from 'The Python Bible' book
 import threading
 
 def hello():
@@ -34,10 +36,29 @@ def function():
     for i in range(500000):
         print('hello world')
 
+#Create a new object of Thread type.
 t1 = threading.Thread(target=function)
-t1.start()
+
+#Start the tread (parallel)
+
+#t1.start()
 
 #Here we wait for the thread to finish 
-t1.join()
+#t1.join()
 
-print("THIS IS THE END!")
+#print("THIS IS THE END!")
+
+'''
+                THREAD CLASS
+'''
+class  MyThread(threading.Thread):
+    def __init__(self,message):
+        threading.Thread.__init__(self)
+        self.message=message
+
+    def run(self):
+        for x in range(100):
+            print(self.message)
+
+mt1=MyThread("This is my thread message!")
+mt1.start()
