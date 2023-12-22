@@ -27,6 +27,22 @@ class LinkedList:
             self.head = Node(value)
 
         self.size+=1
+    #this methos may change, current implementation goes trough all the linked list to find out 
+    #who is the last Node, this migt cause a problem if the size of the list increases.
+    #To fix this, it is necesary to create a 'last' variable that points to the last Node of the list.
+    def removeLast(self):
+        if(self.head):
+            current = self.head
+            
+            while(current.next !=None):
+                previous = current
+                current = current.next
+                 
+            previous.next = None
+            self.size-=1
+            
+        else:
+            print("You can not remove from an empty list")
 
     def insertAt(self,value,pos):
         
@@ -110,6 +126,10 @@ def main():
     mylist.insertAt(20,10)
     mylist.removeFirst()
     mylist.printList()
+    
+    mylist.removeLast()
+    mylist.printList()
+    mylist.printSize()
     '''
     mylist.insertAt('HERE',9)
     mylist.printList()
