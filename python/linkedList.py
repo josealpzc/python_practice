@@ -72,7 +72,7 @@ class LinkedList:
 
                     previous.next = newNode
                     newNode.next = current
-                    self.size+1
+                    self.size+=1
 
             else:
                 self.head = Node(value)
