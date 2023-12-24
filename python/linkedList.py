@@ -50,13 +50,13 @@ class LinkedList:
             print("You can not remove from an empty list")
 
     def insertAt(self,value,pos):
-
-        if(pos>=1 and pos<=self.size+1):
+        tmp = self.size+1
+        if(pos>=1 and pos<=tmp):
             if(self.head):
                 if(pos==1):
                     self.insertFirst(value)
 
-                elif(pos==self.size+1):
+                elif(pos==tmp):
                     self.insertLast(value)
 
                 else:
@@ -72,10 +72,11 @@ class LinkedList:
 
                     previous.next = newNode
                     newNode.next = current
+                    self.size+1
 
             else:
                 self.head = Node(value)
-            self.size+=1
+                self.size+=1
         else:
             tmp = self.size+1
             print(f"Please select a number between 1 and {tmp}")
