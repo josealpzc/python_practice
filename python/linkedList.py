@@ -122,48 +122,6 @@ class LinkedList:
             print("[]")
 
 def main():
-    #Create a list with 5 different values
-    #  5->9->7->10->2
-
-    run = True 
-    mylist = LinkedList()
-
-    while(run):
-        
-        print('List:')
-        mylist.printList()
-        print(f'Size: {mylist.size}')
-        response = int(input("""
-        Please select an action to perform:
-            1. Insert First
-            2. Insert Last
-            3. Remove First
-            4. Remove Last
-            5. Add At
-            6. Exit
-        """))                    
-        if(response == 1):
-            value = int(input("Enter a value:"))
-            mylist.insertFirst(value)
-
-        elif(response == 2):
-            value = int(input("Enter a value:"))
-            mylist.insertLast(value)
-
-        elif(response == 3):
-            mylist.removeFirst()
-
-        elif(response == 4):
-            mylist.removeLast()
-
-        elif(response == 5):
-            value = int(input("Enter your node value:"))
-            position = int(input(f"Enter a position value:"))
-            mylist.insertAt(value,position)
-        
-        elif(response == 6):
-            run=False
-        else:
-            print('choose a valid number')
+    print('MY LINKED LIST!')
 if __name__ == '__main__':
     main()
