@@ -1,13 +1,6 @@
 #Author: Jose Lopez
 #Last Update: 11/23/23
-#Comments: This is a linked List structure implementation:
-#Classes: Node, LinkedList
-#methods: 
-#   - Insert
-#   - Delete
-#   - Size
-#Note: see the LinkedList.txt file for more information about this data structure.
-
+#Comments: This file contains an implementation for a linked list structure.
 class Node:
     def __init__(self,value):
         self.value = value 
@@ -27,9 +20,7 @@ class LinkedList:
             self.head = Node(value)
 
         self.size+=1
-    #this methods may change, current implementation goes trough all the linked list to find out 
-    #who is the last Node, this migt cause a problem if the size of the list increases.
-    #To fix this, it is necesary to create a 'last' variable that points to the last Node of the list.
+    #Note: Implement 'last' variable to keep track of last element in the list so we dont go through each element.
     def removeLast(self):
         if(self.head):
             print(f"head: {self.head.value}")
@@ -55,10 +46,8 @@ class LinkedList:
             if(self.head):
                 if(pos==1):
                     self.insertFirst(value)
-
                 elif(pos==tmp):
                     self.insertLast(value)
-
                 else:
                     #If this condition is raised, it meand that the node to be added is not in the first or the last one.
                     current = self.head
@@ -73,7 +62,6 @@ class LinkedList:
                     previous.next = newNode
                     newNode.next = current
                     self.size+=1
-
             else:
                 self.head = Node(value)
                 self.size+=1
@@ -121,7 +109,3 @@ class LinkedList:
         else:
             print("[]")
 
-def main():
-    print('MY LINKED LIST!')
-if __name__ == '__main__':
-    main()
