@@ -23,7 +23,6 @@ class Stack(linkedList.LinkedList):
     def peek():
         return self.head.value
 
-
-
-
+    def size():
+        return self.size
 
