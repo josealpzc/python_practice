@@ -42,29 +42,23 @@ class LinkedList:
     def insertAt(self,value,pos):
         tmp = self.size+1
         if(pos>=1 and pos<=tmp):
-            if(self.head):
-                if(pos==1):
-                    self.insertFirst(value)
-                elif(pos==tmp):
-                    self.insertLast(value)
-                else:
-                    #If this condition is raised, it meand that the node to be added is not in the first or the last one.
-                    current = self.head
-                    cnt=1
-                    while cnt<pos:
-                       previous = current
-                       current = current.next
-                       cnt+=1
-                    
-                    newNode = Node(value)
-                    previous.next = newNode
-                    newNode.next = current
-                    self.size+=1
+            if(pos==1):
+                self.insertFirst(value)
+            elif(pos==tmp):
+                self.insertLast(value)
             else:
-                if(self.head == 1):
-                    self.insertFirst(value)
-                else:
-                    print('List is empty, you can only insert in the first position')
+                #If this condition is raised, it meand that the node to be added is not in the first or the last one.
+                current = self.head
+                cnt=1
+                while cnt<pos:
+                    previous = current
+                    current = current.next
+                    cnt+=1
+                    
+                newNode = Node(value)
+                previous.next = newNode
+                newNode.next = current
+                self.size+=1
         else:
             print(f"Please select a number between 1 and {tmp}")
 
