@@ -9,34 +9,33 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
         self.size = 0
     
+    #Inserts a new node in the first position.
     def insertFirst(self,value):
         if(self.head):
             newNode = Node(value)
             newNode.next = self.head
             self.head = newNode 
         else:
-            self.head = Node(value)
+            self.head=self.tail = Node(value)
 
         self.size+=1
-    #Note: Implement 'last' variable to keep track of last element in the list so we dont go through each element.
+    
     def removeLast(self):
         if(self.head):
-            print(f"head: {self.head.value}")
             if(self.head.next == None):
-                print ('yes None')
                 self.head = None
-                print (f'head: {self.head} DONE')
+                self.tail = None
             else:
                 current = self.head
                 while(current.next):
                     previous = current
                     current = current.next
+                self.tail = previous
                 previous.next=None
-
             self.size-=1
-
         else:
             print("You can not remove from an empty list")
 
@@ -58,15 +57,15 @@ class LinkedList:
                        cnt+=1
                     
                     newNode = Node(value)
-
                     previous.next = newNode
                     newNode.next = current
                     self.size+=1
             else:
-                self.head = Node(value)
-                self.size+=1
+                if(self.head == 1):
+                    self.insertFirst(value)
+                else:
+                    print('List is empty, you can only insert in the first position')
         else:
-            tmp = self.size+1
             print(f"Please select a number between 1 and {tmp}")
 
     def insertLast(self,value):
@@ -76,9 +75,10 @@ class LinkedList:
                 last = current
                 current=current.next 
             last.next = Node(value)
+            self.tail = last.next
         
         else:
-            self.head = Node(value)
+            self.head=self.tail = Node(value)
         
         self.size+=1
     
@@ -87,6 +87,7 @@ class LinkedList:
         if(self.head):
             if(self.size==1):
                 self.head=None
+                self.tail=None 
             else:
                 self.head=self.head.next
             self.size-=1
@@ -95,7 +96,6 @@ class LinkedList:
         
     def printSize(self):
         print(f"size of the list is: {self.size}")
-
     
     def printList(self):
 
