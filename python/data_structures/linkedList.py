@@ -102,4 +102,6 @@ class LinkedList:
             print(nodes)
         else:
             print("[]")
-
+    
+    def deleteList(self):
+        self.head = None 
