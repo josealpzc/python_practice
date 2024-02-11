@@ -44,5 +44,26 @@ def fibonacci(number):
         b=tmp
         cnt+=1
 
-print_fibonacci(6)
+def sum_list(number_list):
+    result=number_list[0]
 
+    if(len(number_list)==1):
+        return number_list[0]
+    else:
+        result+=sum_list(number_list[1:])
+    return result
+"""
+def sum_recursion_list(num_list): #test = [1,2,[3,4],[5,6]]
+
+    if(len(num_list)==1):
+        return(num_list[0]) 
+    else:
+        print(f"num_list {num_list[0]}")
+        if(type(num_list[0]) == list):
+            a=sum_recursion_list(num_list[0])
+        else:
+            return num_list[0]+sum_recursion_list(num_list[1:])   
+
+my_list=[1,2,[3,4],[5,6]]
+print(sum_recursion_list(my_list))
+"""
