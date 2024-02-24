@@ -49,8 +49,16 @@ def factorial(n):
     if(n==1 or n==0):
         return 1
     else:
-        return factorial(n0) * n
+        return factorial(n-1) * n
 
+#This function receives two numbers as argument and returns its power.
+#eg. input=(2,3), output=(8)
+def power(x,y):
+
+    if(y==1):
+        return x
+    else:
+        return x*power(x,y-1)
 
 def sum_list(number_list):
     result=number_list[0]
