@@ -44,6 +44,14 @@ def fibonacci(number):
         b=tmp
         cnt+=1
 
+#This function receives a number and returns the factorial result:
+def factorial(n):
+    if(n==1 or n==0):
+        return 1
+    else:
+        return factorial(n0) * n
+
+
 def sum_list(number_list):
     result=number_list[0]
 
