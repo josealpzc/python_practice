@@ -59,6 +59,13 @@ def power(x,y):
         return x
     else:
         return x*power(x,y-1)
+#This function will receive a number 'n' and return the sum of digits.
+#eg. input=(5), output=1+2+3+4+5
+def sum(n):
+    if(n==1):
+        return n
+    else:
+        return n+sum(n-1)
 
 def sum_list(number_list):
     result=number_list[0]
